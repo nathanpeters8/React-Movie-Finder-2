@@ -18,7 +18,7 @@ const App = () => {
       </nav>
       <Switch>
         <Route path='/' exact component={Home}/>
-        <Route path='/movie/:id' exact component={Movie}/>
+        <Route path='/movie/:id' component={Movie}/>
         <Route component={NotFound}/>
       </Switch>
     </Router>

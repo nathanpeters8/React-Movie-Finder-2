@@ -9,12 +9,12 @@ const Movie = (props) => {
   return (
     <div className='row'>
       <div className='col-4 col-md-3 mb-3'>
-        <Link to={`/movie/${imdbID}/`} target='_blank'>
+        <Link to={`/movie/${imdbID}/`}>
           <img src={Poster} className='img-fluid' />
         </Link>
       </div>
       <div className='col-8 col-md-9 mb-3'>
-        <Link to={`/movie/${imdbID}/`} target='_blank'>
+        <Link to={`/movie/${imdbID}/`}>
           <h4>{Title}</h4>
           <p>
             {Type} | {Year}
@@ -61,13 +61,13 @@ class MovieFinder extends React.Component {
       .then(checkStatus)
       .then(json)
       .then((data) => {
-        console.log(data);
         // throw error if no movies are found
         if (data.Response === 'False') {
           throw new Error(data.Error);
         }
         // store array of movie objects in component state if movies are found
         if (data.Response === 'True' && data.Search) {
+          console.log(data);
           this.setState({ results: data.Search, error: '' });
         }
       })
